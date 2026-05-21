@@ -780,4 +780,7 @@ void CActor::g_SetAnimation(u32 mstate_rl)
 
 	m_current_torso_blend->timeCurrent = m_current_legs_blend->timeCurrent / m_current_legs_blend->timeTotal *
 		m_current_torso_blend->timeTotal;
+
+	if (m_current_legs_blend && m_fActorAnimSpeedScale > 0.f)
+		m_current_legs_blend->speed = m_fActorAnimSpeedScale;
 }

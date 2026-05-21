@@ -2881,5 +2881,29 @@ void CScriptGameObject::BlockWeaponSlots(bool blocked)
 	pActor->m_bWeaponSlotsBlocked = blocked;
 }
 
+float CScriptGameObject::GetActorAnimSpeedScale() const
+{
+	CActor* pActor = smart_cast<CActor*>(&object());
+	if (!pActor)
+	{
+		ai().script_engine().script_log(ScriptStorage::eLuaMessageTypeError,
+			"CActor : cannot access class member GetActorAnimSpeedScale!");
+		return 1.0f;
+	}
+	return pActor->m_fActorAnimSpeedScale;
+}
+
+void CScriptGameObject::SetActorAnimSpeedScale(float scale)
+{
+	CActor* pActor = smart_cast<CActor*>(&object());
+	if (!pActor)
+	{
+		ai().script_engine().script_log(ScriptStorage::eLuaMessageTypeError,
+			"CActor : cannot access class member SetActorAnimSpeedScale!");
+		return;
+	}
+	pActor->m_fActorAnimSpeedScale = scale;
+}
+
 #endif
 //Alundaio: END

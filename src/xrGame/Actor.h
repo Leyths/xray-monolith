@@ -495,6 +495,7 @@ public:
 
 	bool m_bCrouchBlocked      = false;
 	bool m_bWeaponSlotsBlocked = false;
+	float m_fActorAnimSpeedScale = 1.0f;
 
 public:
 	Fvector GetMovementSpeed() { return NET_SavedAccel; };

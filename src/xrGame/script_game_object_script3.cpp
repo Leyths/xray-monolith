@@ -631,9 +631,11 @@ class_<CScriptGameObject> script_register_game_object2(class_<CScriptGameObject>
 		.def("get_actor_lookout_coef", SAFE_WRAP(&CScriptGameObject::GetActorLookoutCoef))
 		.def("set_actor_lookout_coef", SAFE_WRAP(&CScriptGameObject::SetActorLookoutCoef))
 
-		.def("get_current_material_name", SAFE_WRAP(&CScriptGameObject::GetCurrentMaterialName))
-		.def("block_crouch",              SAFE_WRAP(&CScriptGameObject::BlockCrouch))
-		.def("block_weapon_slots",        SAFE_WRAP(&CScriptGameObject::BlockWeaponSlots))
+		.def("get_current_material_name",   SAFE_WRAP(&CScriptGameObject::GetCurrentMaterialName))
+		.def("block_crouch",                SAFE_WRAP(&CScriptGameObject::BlockCrouch))
+		.def("block_weapon_slots",          SAFE_WRAP(&CScriptGameObject::BlockWeaponSlots))
+		.def("get_actor_anim_speed_scale",  SAFE_WRAP(&CScriptGameObject::GetActorAnimSpeedScale))
+		.def("set_actor_anim_speed_scale",  SAFE_WRAP(&CScriptGameObject::SetActorAnimSpeedScale))
 
 		// demonized: add getters and setters for pathfinding for npcs around anomalies and damage for npcs
 		.def("get_enable_anomalies_pathfinding", SAFE_WRAP(&CScriptGameObject::get_enable_anomalies_pathfinding))

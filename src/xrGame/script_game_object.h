@@ -1169,6 +1169,9 @@ public:
 	LPCSTR GetCurrentMaterialName();
 	void   BlockCrouch(bool blocked);
 	void   BlockWeaponSlots(bool blocked);
+
+	float  GetActorAnimSpeedScale() const;
+	void   SetActorAnimSpeedScale(float scale);
 #endif
 	//-Alundaio
 
