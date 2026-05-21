@@ -462,6 +462,7 @@ public:
 	bool CanRun();
 	void StopAnyMove();
 	void StopSprint() { mstate_wishful &= ~mcSprint; }
+	void StopCrouch() { mstate_wishful &= ~mcCrouch; }
 
 	bool AnyAction() { return (mstate_real & mcAnyAction) != 0; };
 	bool AnyMove() { return (mstate_real & mcAnyMove) != 0; };
@@ -491,6 +492,9 @@ public:
 
 	// demonized: lookout modifier
 	float m_fLookoutFactor = 1;
+
+	bool m_bCrouchBlocked      = false;
+	bool m_bWeaponSlotsBlocked = false;
 
 public:
 	Fvector GetMovementSpeed() { return NET_SavedAccel; };

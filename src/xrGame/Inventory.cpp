@@ -558,6 +558,13 @@ void CInventory::Activate(u16 slot, bool bForce)
 		return;
 	}
 
+	if (!bForce && slot != NO_ACTIVE_SLOT)
+	{
+		CActor* pActor = smart_cast<CActor*>(m_pOwner);
+		if (pActor && pActor->m_bWeaponSlotsBlocked)
+			return;
+	}
+
 	PIItem tmp_item = NULL;
 	if (slot != NO_ACTIVE_SLOT)
 		tmp_item = ItemFromSlot(slot);

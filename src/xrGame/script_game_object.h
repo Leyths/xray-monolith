@@ -1165,6 +1165,10 @@ public:
 	// demonized: get and set scope UI
 	::luabind::object get_scope_ui();
 	void set_scope_ui(LPCSTR scope_texture);
+
+	LPCSTR GetCurrentMaterialName();
+	void   BlockCrouch(bool blocked);
+	void   BlockWeaponSlots(bool blocked);
 #endif
 	//-Alundaio
 

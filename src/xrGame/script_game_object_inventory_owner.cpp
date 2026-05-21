@@ -11,6 +11,8 @@
 #include "character_info.h"
 #include "gametask.h"
 #include "actor.h"
+#include "material_manager.h"
+#include "../xrEngine/GameMtlLib.h"
 #include "level.h"
 #include "date_time.h"
 #include "uigamesp.h"
@@ -2838,6 +2840,45 @@ LPCSTR CScriptGameObject::GetActorDefaultActionForObject()
 		return nullptr;
 	}
 	return pActor->GetDefaultActionForObject();
+}
+
+LPCSTR CScriptGameObject::GetCurrentMaterialName()
+{
+	CActor* pActor = smart_cast<CActor*>(&object());
+	if (!pActor)
+		return "";
+	pActor->material().get_current_pair(); // forces update_last_material()
+	u16 idx = pActor->material().last_material_idx();
+	if (idx == GAMEMTL_NONE_IDX)
+		return "";
+	SGameMtl* mtl = GMLib.GetMaterialByIdx(idx);
+	return mtl ? mtl->m_Name.c_str() : "";
+}
+
+void CScriptGameObject::BlockCrouch(bool blocked)
+{
+	CActor* pActor = smart_cast<CActor*>(&object());
+	if (!pActor)
+	{
+		ai().script_engine().script_log(ScriptStorage::eLuaMessageTypeError,
+			"CActor : cannot access class member BlockCrouch!");
+		return;
+	}
+	pActor->m_bCrouchBlocked = blocked;
+	if (blocked)
+		pActor->StopCrouch();
+}
+
+void CScriptGameObject::BlockWeaponSlots(bool blocked)
+{
+	CActor* pActor = smart_cast<CActor*>(&object());
+	if (!pActor)
+	{
+		ai().script_engine().script_log(ScriptStorage::eLuaMessageTypeError,
+			"CActor : cannot access class member BlockWeaponSlots!");
+		return;
+	}
+	pActor->m_bWeaponSlotsBlocked = blocked;
 }
 
 #endif

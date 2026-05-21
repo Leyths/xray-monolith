@@ -133,6 +133,7 @@ void CActor::IR_OnKeyboardPress(int cmd)
 	break;
 	case kCROUCH:
 		{
+			if (m_bCrouchBlocked) break;
 			if (psActorFlags.test(AF_CROUCH_TOGGLE))
 				mstate_wishful ^= mcCrouch;
 		}
@@ -395,6 +396,7 @@ void CActor::IR_OnKeyboardHold(int cmd)
 		break;
 	case kCROUCH:
 		{
+			if (m_bCrouchBlocked) break;
 			if (!psActorFlags.test(AF_CROUCH_TOGGLE))
 				mstate_wishful |= mcCrouch;
 		}
