@@ -562,7 +562,12 @@ void CInventory::Activate(u16 slot, bool bForce)
 	{
 		CActor* pActor = smart_cast<CActor*>(m_pOwner);
 		if (pActor && pActor->m_bWeaponSlotsBlocked)
+		{
+			::luabind::functor<void> fn;
+			if (ai().script_engine().functor("_G.CActor_OnWeaponSlotBlocked", fn))
+				fn((u32)slot);
 			return;
+		}
 	}
 
 	PIItem tmp_item = NULL;
