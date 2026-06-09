@@ -19,6 +19,7 @@
 #define CLSID_AI_FLESH_GROUP		MK_CLSID('A','I','_','F','L','E','_','G')
 
 #define CLSID_AI_PHANTOM			MK_CLSID('A','I','_','P','H','A','N','T')
+#define CLSID_THREAT_ANCHOR			MK_CLSID('T','H','R','_','A','N','C','H')
 #define CLSID_AI_SPONGER			MK_CLSID('A','I','_','S','P','O','N','G')
 #define CLSID_AI_CONTROLLER			MK_CLSID('A','I','_','C','O','N','T','R')
 #define CLSID_AI_BLOODSUCKER		MK_CLSID('A','I','_','B','L','O','O','D')

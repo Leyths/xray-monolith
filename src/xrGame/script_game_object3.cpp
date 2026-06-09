@@ -15,6 +15,7 @@
 #include "cover_point.h"
 #include "cover_manager.h"
 #include "ai/stalker/ai_stalker.h"
+#include "threat_anchor.h"
 #include "stalker_animation_manager.h"
 #include "stalker_planner.h"
 #include "weapon.h"
@@ -1949,6 +1950,30 @@ u32 CScriptGameObject::GetSpatialType()
 {
 	return object().spatial.type;
 }
+
+// Threat-anchor control: these are no-ops unless this game object is a CThreatAnchor.
+void CScriptGameObject::SetThreatAnchorParent(u16 parent_id)
+{
+	CThreatAnchor* anchor = smart_cast<CThreatAnchor*>(&object());
+	if (anchor)
+		anchor->bind_parent(parent_id);
+}
+
+void CScriptGameObject::SetThreatAnchorDamageScale(float k)
+{
+	CThreatAnchor* anchor = smart_cast<CThreatAnchor*>(&object());
+	if (anchor)
+		anchor->set_damage_scale(k);
+}
+
+void CScriptGameObject::SetThreatAnchorOffset(float x, float y, float z)
+{
+	CThreatAnchor* anchor = smart_cast<CThreatAnchor*>(&object());
+	if (anchor)
+		anchor->set_local_offset(Fvector().set(x, y, z));
+}
+
+
 
 void CScriptGameObject::DestroyObject()
 {

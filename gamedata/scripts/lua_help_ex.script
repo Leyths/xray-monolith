@@ -683,6 +683,11 @@
 		
 		reset_shader(id, hud_mode)
 		same as set_shader but resets to the default shader/texture values, so you don't need to store them in a table to reset them later
+
+        // Convoy threat-anchor primitive (CThreatAnchor) + scripted monster flee
+        function set_threat_anchor_parent(u16 parent_id)              // bind anchor to a parent object; hits it takes are forwarded to the parent
+        function set_threat_anchor_damage_scale(float k)              // multiplier applied to forwarded hit power
+        function set_threat_anchor_offset(float x, float y, float z)  // anchor offset in the parent's local frame (rotates with it)
     }
 
     class CArtefact : CGameObject {

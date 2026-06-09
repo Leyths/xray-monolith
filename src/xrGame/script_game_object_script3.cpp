@@ -482,6 +482,9 @@ class_<CScriptGameObject> script_register_game_object2(class_<CScriptGameObject>
 		.def("angle", SAFE_WRAP(&CScriptGameObject::Angle))
 		.def("force_set_rotation", SAFE_WRAP(&CScriptGameObject::ForceSetRotation))
 		.def("set_spatial_type", SAFE_WRAP(&CScriptGameObject::SetSpatialType))
+		.def("set_threat_anchor_parent", SAFE_WRAP(&CScriptGameObject::SetThreatAnchorParent))
+		.def("set_threat_anchor_damage_scale", SAFE_WRAP(&CScriptGameObject::SetThreatAnchorDamageScale))
+		.def("set_threat_anchor_offset", SAFE_WRAP(&CScriptGameObject::SetThreatAnchorOffset))
 		.def("get_spatial_type", SAFE_WRAP(&CScriptGameObject::GetSpatialType))
 		.def("destroy_object", SAFE_WRAP(&CScriptGameObject::DestroyObject))
 		//For Ammo

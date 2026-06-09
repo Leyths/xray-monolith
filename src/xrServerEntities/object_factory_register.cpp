@@ -45,6 +45,7 @@
 #	include "ai/monsters/rats/ai_rat.h"
 
 #	include "ai/phantom/phantom.h"
+#	include "threat_anchor.h"
 
 #	include "ai/trader/ai_trader.h"
 
@@ -272,6 +273,7 @@ void CObjectFactory::register_classes()
 	ADD(CTushkano, CSE_ALifeMonsterBase, CLSID_AI_TUSHKANO, "tushkano");
 
 	ADD(CPhantom, CSE_ALifeCreaturePhantom, CLSID_AI_PHANTOM, "phantom");
+	ADD(CThreatAnchor, CSE_ALifeTrader, CLSID_THREAT_ANCHOR, "threat_anchor");
 
 	// Trader
 	ADD(CAI_Trader, CSE_ALifeTrader, CLSID_AI_TRADER, "trader");

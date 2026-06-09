@@ -984,6 +984,9 @@ public:
 	u32 GetSpatialType();
 	void DestroyObject();
 	void SetSpatialType(u32 sptype);
+	void SetThreatAnchorParent(u16 parent_id);
+	void SetThreatAnchorDamageScale(float k);
+	void SetThreatAnchorOffset(float x, float y, float z);
 	u8 GetRestrictionType();
 	void SetRestrictionType(u8 typ);
 
